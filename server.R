@@ -39,7 +39,7 @@ shinyServer(function(input, output, session) {
       data <- donnees()
       leafletProxy("carte") %>%
         removeShape(layerId = paste0("iris", row.names(iris))) %>%
-        addPolygons(data = data, stroke = FALSE, color = pal(data@data[,input$variable]), fillOpacity = 0.8, popup = ~paste0("Commune : ", NOM_COM, "<BR>IRIS : ", NOM_IRIS, "<BR>", legendes_small[input$variable], " : ", data@data[,input$variable]), layerId = paste0("iris", row.names(iris)))
+        addPolygons(data = data, stroke = FALSE, color = pal(data@data[,input$variable]), fillOpacity = 0.8, popup = ~paste0("Commune : ", NOM_COM, "<BR>IRIS : ", NOM_IRIS, "<BR>", legendes_small[input$variable], " : ", round(data@data[,input$variable], 2)), layerId = paste0("iris", row.names(iris)))
       })
   })
   
